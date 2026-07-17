@@ -283,11 +283,10 @@ class RoPEAttention(nn.Module):
             k = torch.cat([kd, kh, kw], dim=-1)
 
         if self.use_sdpa:
-            with torch.backends.cuda.sdp_kernel():
-                x = F.scaled_dot_product_attention(
-                    q, k, v, dropout_p=self.proj_drop_prob, is_causal=self.is_causal
-                )
-                attn = None
+            x = F.scaled_dot_product_attention(
+                q, k, v, dropout_p=self.proj_drop_prob, is_causal=self.is_causal
+            )
+            attn = None
         else:
             attn = (q @ k.transpose(-2, -1)) * self.scale
             attn = attn.softmax(dim=-1)
@@ -336,11 +335,10 @@ class Attention(nn.Module):
         q, k, v = qkv[0], qkv[1], qkv[2]
 
         if self.use_sdpa:
-            with torch.backends.cuda.sdp_kernel():
-                x = F.scaled_dot_product_attention(
-                    q, k, v, dropout_p=self.proj_drop_prob, is_causal=self.is_causal
-                )
-                attn = None
+            x = F.scaled_dot_product_attention(
+                q, k, v, dropout_p=self.proj_drop_prob, is_causal=self.is_causal
+            )
+            attn = None
         else:
             attn = (q @ k.transpose(-2, -1)) * self.scale
             attn = attn.softmax(dim=-1)
@@ -483,8 +481,7 @@ class CrossAttention(nn.Module):
         k, v = kv[0], kv[1]
 
         if self.use_sdpa:
-            with torch.backends.cuda.sdp_kernel():
-                q = F.scaled_dot_product_attention(q, k, v)
+            q = F.scaled_dot_product_attention(q, k, v)
         else:
             xattn = (q @ k.transpose(-2, -1)) * self.scale
             xattn = xattn.softmax(dim=-1)
