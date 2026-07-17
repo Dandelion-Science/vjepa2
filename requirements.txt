@@ -9,7 +9,6 @@ opencv-python
 submitit
 braceexpand
 webdataset
-timm
 transformers
 peft
 decord

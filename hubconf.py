@@ -16,4 +16,4 @@ from src.hub.backbones import (
     vjepa2_1_vit_gigantic_384,
 )
 
-dependencies = ["torch", "timm", "einops"]
+dependencies = ["torch", "einops"]

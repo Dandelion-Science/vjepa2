@@ -242,7 +242,7 @@ See our HuggingFace [collection](https://huggingface.co/collections/facebook/v-j
 
 #### Pretrained backbones (via PyTorch Hub)
 
-Please install [Pytorch](https://pytorch.org/get-started/locally/), [timm](https://pypi.org/project/timm/) and [einops](https://pypi.org/project/einops/) locally, then run the following to load each model. Installing Pytorch with CUDA support is strongly recommended.
+Please install [Pytorch](https://pytorch.org/get-started/locally/) and [einops](https://pypi.org/project/einops/) locally, then run the following to load each model. Installing Pytorch with CUDA support is strongly recommended.
 
 ```python
 import torch
@@ -356,7 +356,7 @@ Our action-conditioned checkpoint was trained from the ViT-g encoder.
 
 #### Pretrained action-conditioned backbone (via PyTorch Hub)
 
-Please install [Pytorch](https://pytorch.org/get-started/locally/), [timm](https://pypi.org/project/timm/) and [einops](https://pypi.org/project/einops/) locally, then run the following to load each model. Installing Pytorch with CUDA support is strongly recommended.
+Please install [Pytorch](https://pytorch.org/get-started/locally/) and [einops](https://pypi.org/project/einops/) locally, then run the following to load each model. Installing Pytorch with CUDA support is strongly recommended.
 
 ```python
 import torch
