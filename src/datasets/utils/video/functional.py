@@ -5,7 +5,6 @@
 
 import numbers
 
-import cv2
 import numpy as np
 import PIL
 import torch
@@ -51,6 +50,9 @@ def resize_clip(clip, size, interpolation="bilinear"):
             size = size[0], size[1]
 
         if isinstance(clip[0], np.ndarray):
+            # Imported here so that tensor and PIL clips do not require OpenCV.
+            import cv2
+
             if interpolation == "bilinear":
                 np_inter = cv2.INTER_LINEAR
             else:
